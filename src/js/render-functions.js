@@ -3,16 +3,16 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 
 const gallery = document.querySelector(".gallery");
 
-function createGallery(items) {
+export function createGallery(items) {
   
   const markup = items
     .map(
       ({ webformatURL, largeImageURL, tags }) => `
-        <div class="gallery-item">
+        <li class="gallery-item">
           <a href="${largeImageURL}" data-lightbox="gallery">
             <img src="${webformatURL}" alt="${tags}" />
           </a>
-        </div>
+        </li>
       `
     )
     .join("");

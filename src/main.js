@@ -1,7 +1,7 @@
 
 
 import fetchData from './js/pixabay-api.js';
-// // import moduleName from './js/render-functions.js';
+import { createGallery } from './js/render-functions.js';
 
 const searchForm = document.querySelector('.form');
 
@@ -13,6 +13,7 @@ searchForm.addEventListener('submit', event => {
 
   fetchData(query).then(images => {
     console.log(images);
+    createGallery(images);
   }).catch(error => {
     console.error('Error fetching images:', error);
   });
