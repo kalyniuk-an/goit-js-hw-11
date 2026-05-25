@@ -1,15 +1,24 @@
-function getImagesByQuery(query) {
-  const API_KEY = 'YOUR_API_KEY';
-  const URL = `https://pixabay.com/api/?key=${API_KEY}&q=${encodeURIComponent(query)}&image_type=photo`;
-  return fetch(URL)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => data.hits)
-    .catch(error => {
-      console.error('There was a problem with the fetch operation:', error);
-    });
+// import axios from 'axios';
+
+// export function getImagesByQuery(query) {
+//   const searchParam = new URLSearchParams({
+//     key: '56012300-f086c257a570084238c9733eb',
+//     q: query,
+//     image_type: 'photo',
+//     orientation: 'horizontal',
+//     safesearch: true
+//   });
+
+//   const URL = `https://pixabay.com/api/}`;
+//   return axios.get(URL, {params: searchParam })
+//     .then(response => response.data.hits)
+//     .catch(error => {
+//       console.error('There was a problem with the fetch operation:', error);
+//     });
+// }
+
+let proba = () => {
+  console.log('Hello from main.js!');
 }
+
+export default proba;
