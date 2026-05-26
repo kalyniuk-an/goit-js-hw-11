@@ -4,6 +4,11 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 const gallery = document.querySelector(".gallery");
 const loader = document.querySelector(".loader");
 
+const lightbox = new SLBox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+});
+
 function createGalleryItem({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) {
   return `
     <li class="gallery-item">
@@ -26,6 +31,7 @@ export function createGallery(items) {
     .map(createGalleryItem)
     .join("");
   gallery.innerHTML = markup;
+  lightbox.refresh();
 }
 
 export function clearGallery() {
