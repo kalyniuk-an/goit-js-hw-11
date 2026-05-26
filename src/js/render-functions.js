@@ -2,6 +2,7 @@ import SLBox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 const gallery = document.querySelector(".gallery");
+const loader = document.querySelector(".loader");
 
 function createGalleryItem({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) {
   return `
@@ -27,14 +28,14 @@ export function createGallery(items) {
   gallery.innerHTML = markup;
 }
 
-function clearGallery() {
+export function clearGallery() {
   gallery.innerHTML = "";
 }
 
-function showLoader() {
-  // Ця функція нічого не приймає, повинна додавати клас для відображення лоадера. Нічого не повертає
+export function showLoader() {
+  loader.classList.remove("hidden");
 }
 
-function hideLoader() {
-  // Ця функція нічого не приймає, повинна прибирати клас для відображення лоадера. Нічого не повертає
+export function hideLoader() {
+  loader.classList.add("hidden");
 }
