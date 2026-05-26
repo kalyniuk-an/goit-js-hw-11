@@ -16,6 +16,7 @@ searchForm.addEventListener('submit', event => {
     return;
   }
   
+  clearGallery();
   showLoader();
 
   fetchData(query)
@@ -33,4 +34,6 @@ searchForm.addEventListener('submit', event => {
     .finally(() => {
       hideLoader();
     });
+  
+  searchForm.reset();
 });
