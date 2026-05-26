@@ -11,7 +11,7 @@ export default function getImagesByQuery(query) {
   const URL = `https://pixabay.com/api/`;
 
   return axios.get(URL, { params: searchParam })
-    .then(response => response.data.hits)
+    .then(response => response.data)
     .catch(error => {
       console.error('There was a problem with the fetch operation:', error);
     });
