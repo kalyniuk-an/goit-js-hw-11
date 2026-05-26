@@ -25,9 +25,9 @@ function createGalleryItem({ webformatURL, largeImageURL, tags, likes, views, co
   `;
 }
 
-export function createGallery(items) {
+export function createGallery(images) {
   
-  const markup = items
+  const markup = images
     .map(createGalleryItem)
     .join("");
   gallery.innerHTML = markup;

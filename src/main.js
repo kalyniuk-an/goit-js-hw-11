@@ -1,4 +1,5 @@
-
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 import fetchData from './js/pixabay-api.js';
 import { createGallery, clearGallery, showLoader, hideLoader } from './js/render-functions.js';
@@ -12,7 +13,11 @@ searchForm.addEventListener('submit', event => {
   console.log('Search query:', query);
 
   if (!query) {
-    console.log('Please enter a search query.');
+    iziToast.info({
+      title: 'Info',
+      message: 'Please enter a search query.',
+      position: 'topRight',
+    });
     return;
   }
   
@@ -22,14 +27,22 @@ searchForm.addEventListener('submit', event => {
   fetchData(query)
     .then(data => {
     if (data.hits.length === 0) {
-      console.log('Sorry, there are no images matching your search query. Please try again!');
+      iziToast.error({
+        title: 'Error',
+        message: 'Sorry, there are no images matching your search query. Please try again!',
+        position: 'topRight',
+      });
       return;
     }
-    console.log(data);
+    
     createGallery(data.hits);
     })
     .catch(error => {
-    console.error('Error fetching images:', error);
+    iziToast.error({
+      title: 'Error',
+      message: 'Something went wrong. Please try again later.',
+      position: 'topRight',
+    });
     })
     .finally(() => {
       hideLoader();
